@@ -6,16 +6,25 @@ interface Props {
 
 export default function SingleSite({ site }: Props) {
     return (
-    <tr>
-        <td>
-            {site.intersection}
-        </td>
-        <td>
-            {site.weekdays}
-        </td>
-        <td>
-            {site.hours}
-        </td>
-    </tr>
-)
+        <tr>
+            <td>
+                {site.coordinates}
+            </td>
+            <td>
+                {site.boro}
+            </td>
+            <td>
+                {site.lat} : {site.lng}
+            </td>
+            <td>
+                {site.intersection}
+            </td>
+            <td>
+                {site.weekdays}
+            </td>
+            <td>
+                {site.hours}
+            </td>
+        </tr>
+    )
 }

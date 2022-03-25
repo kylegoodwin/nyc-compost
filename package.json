@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@turf/boolean-point-in-polygon": "^6.5.0",
+    "@turf/helpers": "^6.5.0",
     "fast-xml-parser": "^4.0.7",
     "leaflet": "^1.7.1",
     "next": "12.1.0",
