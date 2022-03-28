@@ -8,6 +8,7 @@ export default interface Site{
     link: string,
     boro?: string
     lat: number,
-    lng: number
+    lng: number,
+    distance?: number
 
 }
