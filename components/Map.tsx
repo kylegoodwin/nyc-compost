@@ -8,11 +8,11 @@ interface SiteDisplayProps {
 }
 
 export default function Map({sites} : SiteDisplayProps) {
-    const position: LatLngTuple = [40.7228048,-73.855843]
+    const position: LatLngTuple = [40.7423,-73.9095]
 
     return (
         <div style={{ height: "500px" }}>
-            <MapContainer style={{height: "500px"}} center={position} zoom={13} scrollWheelZoom={false}>
+            <MapContainer style={{height: "500px"}} center={position} zoom={11} scrollWheelZoom>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url={`https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=Bu8QSoz4tewcr8rg3Ofa`}
