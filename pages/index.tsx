@@ -34,9 +34,9 @@ export const getStaticProps: GetStaticProps = async () => {
 
 
     if (_feature.geometry.type === "Polygon") {
-      shape = {type: "Polygon", coordinates: _feature.geometry.coordinates as Position[][]}
+      shape = { type: "Polygon", coordinates: _feature.geometry.coordinates as Position[][] }
     } else {
-      shape = {type: "MultiPolygon", coordinates: _feature.geometry.coordinates as Position[][][]}
+      shape = { type: "MultiPolygon", coordinates: _feature.geometry.coordinates as Position[][][] }
     }
 
     boroShapes.push({ boroName: _feature.properties.boro_name, shape: shape })
@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const _point = point([parseFloat(stringAr[1]), parseFloat(stringAr[0])])
 
     const boroName = boroShapes.find(_boro => {
-      return booleanPointInPolygon(_point,_boro.shape)
+      return booleanPointInPolygon(_point, _boro.shape)
     })?.boroName || "Not Found"
 
 
@@ -107,8 +107,8 @@ const Home: NextPage<Props> = ({ compostSites, boroShapes }: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.mainGrid}>
-        <DynamicMap sites={compostSites} />
         <Sites location={state.location} sites={compostSites} />
+        <DynamicMap sites={compostSites} />
       </div>
     </div>
   )

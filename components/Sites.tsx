@@ -1,5 +1,6 @@
 import Site from "../types/site";
 import SingleSite from "./SingleSite";
+import classes from '../styles/Sites.module.css'
 
 interface Props {
     sites: Site[],
@@ -9,7 +10,7 @@ interface Props {
 export default function Sites({ location, sites }: Props) {
 
     return (
-        <div>
+        <div className={classes.sitesContainer}>
             <table>
                 <thead>
                     <tr>
@@ -19,7 +20,7 @@ export default function Sites({ location, sites }: Props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {sites.map((_site, _index) => <SingleSite location={location} key={_site.coordinates!} site={_site} />)}
+                    {sites.sort((a,b) => {return a.boro! > b.boro! ? 1 : -1}).map((_site, _index) => <SingleSite location={location} key={_site.coordinates!} site={_site} />)}
                 </tbody>
             </table>
         </div>)

@@ -5,5 +5,5 @@
 
 .mainGrid{
     display: grid;
-    column-count: 2;
+    grid-template-columns: 50% 50%;
 }

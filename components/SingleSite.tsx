@@ -20,13 +20,7 @@ export default function SingleSite({ site, location }: SingleSiteProps) {
     return (
         <tr>
             <td>
-                {site.coordinates}
-            </td>
-            <td>
                 {site.boro}
-            </td>
-            <td>
-                {site.lat} : {site.lng}
             </td>
             <td>
                 {site.intersection}
