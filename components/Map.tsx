@@ -1,8 +1,10 @@
 import { LatLngTuple } from 'leaflet'
-import { MapContainer, TileLayer, Circle } from 'react-leaflet'
+import { MapContainer, TileLayer, Circle, GeoJSON } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import Site from '../types/site'
 import useWindowSize from '../hooks/useWindowSize'
+import communityDistrictShapes from '../assets/community-districts-curbside.json'
+import { GeoJsonObject } from 'geojson'
 
 interface SiteDisplayProps {
     sites: Site[]
@@ -21,6 +23,11 @@ export default function Map({sites} : SiteDisplayProps) {
                     url={`https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=Bu8QSoz4tewcr8rg3Ofa`}
                 />
                 {sites.map(_site => <Circle key={_site.coordinates.replace(" ", "")} color='red' center={[_site.lat,_site.lng]} />)}
+                {communityDistrictShapes.features.map( (_cd, index) => <GeoJSON
+                 key={`cd-${index}`} 
+                 data={_cd as GeoJsonObject}  
+                 style={{stroke: false, color: "#ff8100"}}
+                 />)}
             </MapContainer>}
         </div>
     )
