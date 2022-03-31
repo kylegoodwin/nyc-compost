@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic'
 import { point, Position, Polygon, MultiPolygon } from '@turf/helpers';
 import shapeData from "../assets/boro-boundries.json"
 import { useState } from 'react';
+import Header from '../components/Header';
 
 interface BoroShape {
   boroName: string,
@@ -98,19 +99,22 @@ const Home: NextPage<Props> = ({ compostSites, boroShapes }: Props) => {
     error: null
   });
 
-  const getCurrentLocation = () => {
+  const getLocation = () => {
     navigator.geolocation.getCurrentPosition((loc) => {
       setState({ ...state, location: loc.coords })
     });
   }
 
   return (
+    <>
+    <Header getLocation={getLocation} />
     <div className={styles.container}>
       <div className={styles.mainGrid}>
         <Sites location={state.location} sites={compostSites} />
         <DynamicMap sites={compostSites} />
       </div>
     </div>
+    </>
   )
 }
 
