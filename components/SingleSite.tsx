@@ -14,14 +14,11 @@ export default function SingleSite({ site, location }: SingleSiteProps) {
     if(location){
         const p1 = point([location?.longitude,location?.latitude])
         const p2 = point([site.lng,site.lat])
-        distanceToSite = distance(p1,p2)
+        distanceToSite = (distance(p1,p2) * 0.62137).toFixed(2)
     }
 
     return (
         <tr>
-            <td>
-                {site.boro}
-            </td>
             <td>
                 {site.intersection}
             </td>
