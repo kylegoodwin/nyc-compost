@@ -17,3 +17,4 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [ ] Setup testing for data manipulation and UI elements
 - [ ] Github actions for CI/CD
 - [ ] Add deploy to subdomain on personal site
+- [ ] Add attribution for homepage photo

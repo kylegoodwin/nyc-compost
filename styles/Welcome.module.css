@@ -1,0 +1,45 @@
+.image{
+    position: relative;
+}
+
+.image > span{
+    width: 70%;
+    border-radius: 12px;
+}
+
+.container {
+    padding: 2em;
+    height: 100vh;
+    display: inline-block;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.container h1{
+    font-family: serif;
+    color: #008561;
+    font-family: 'Inter', sans-serif;
+    font-size: 3em;
+    width: 100%;
+    text-align: center;
+}
+
+.actions{
+    z-index: 2;
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    padding: 2em;
+    width: 100%;
+}
+
+.actions div{
+    border: solid 2px #008561;
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    border-radius: 5px;
+    background-color: white;
+}

@@ -1,10 +1,11 @@
-import { LatLngTuple } from 'leaflet'
-import { MapContainer, TileLayer, Circle, GeoJSON } from 'react-leaflet'
+import { LatLngExpression, LatLngTuple, polygon, PolylineOptions } from 'leaflet'
+import { MapContainer, TileLayer, Circle, GeoJSON, Polygon } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import Site from '../types/site'
 import useWindowSize from '../hooks/useWindowSize'
 import communityDistrictShapes from '../assets/community-districts-curbside.json'
 import { GeoJsonObject } from 'geojson'
+import nycShape from '../assets/nyc-shape.json'
 
 interface SiteDisplayProps {
     sites: Site[]
@@ -12,6 +13,13 @@ interface SiteDisplayProps {
 
 export default function Map({sites} : SiteDisplayProps) {
     const position: LatLngTuple = [40.7423,-73.9095]
+
+    const coords = [[[90, -180],
+    [90, 180],
+    [-90, 180],
+    [-90, -180]], nycShape.geometries[0].coordinates] as LatLngExpression[] | LatLngExpression[][] | LatLngExpression[][][]
+
+    const testShape = polygon(coords)
 
     const {height} = useWindowSize();
 
@@ -28,6 +36,7 @@ export default function Map({sites} : SiteDisplayProps) {
                  data={_cd as GeoJsonObject}  
                  style={{stroke: false, color: "#ff8100"}}
                  />)}
+
             </MapContainer>}
         </div>
     )

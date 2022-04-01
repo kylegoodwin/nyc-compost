@@ -1,7 +1,7 @@
 import Site from "../types/site"
-import SiteDisplayProps from "../types/site-display-props"
 import { point } from "@turf/helpers"
 import distance from "@turf/distance"
+import classes from "../styles/SingleSite.module.css"
 
 interface SingleSiteProps {
     site: Site,
@@ -18,7 +18,7 @@ export default function SingleSite({ site, location }: SingleSiteProps) {
     }
 
     return (
-        <tr>
+        <tr className={classes.row}>
             <td>
                 {site.intersection}
             </td>

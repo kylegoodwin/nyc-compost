@@ -5,6 +5,7 @@
 }
 
 .seperator{
-    padding: 1em 0;
-    color: red;
+    padding: .5em 0;
+    font-size: 1.25em;
+    font-weight: bold;
 }

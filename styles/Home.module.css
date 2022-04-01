@@ -1,9 +1,9 @@
-.mapContainer{
-    width: 500px;
-    height: 300px;
-}
 
+.container{
+    height: 100vh;
+}
 .mainGrid{
+    height: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
 }

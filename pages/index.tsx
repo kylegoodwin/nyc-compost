@@ -9,6 +9,7 @@ import { point, Position, Polygon, MultiPolygon } from '@turf/helpers';
 import shapeData from "../assets/boro-boundries.json"
 import { useState } from 'react';
 import Header from '../components/Header';
+import Welcome from '../components/Welcome';
 
 interface BoroShape {
   boroName: string,
@@ -107,13 +108,17 @@ const Home: NextPage<Props> = ({ compostSites, boroShapes }: Props) => {
 
   return (
     <>
-    <Header getLocation={getLocation} />
+    {/* <Header /> */}
+    <Welcome />
+    <section>
+      <h2>Sites and Map</h2>
     <div className={styles.container}>
       <div className={styles.mainGrid}>
         <Sites location={state.location} sites={compostSites} />
         <DynamicMap sites={compostSites} />
       </div>
     </div>
+    </section>
     </>
   )
 }

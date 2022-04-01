@@ -1,14 +1,10 @@
 import classes from '../styles/Header.module.css'
 
-interface Props{
-    getLocation: () => void
-}
-
-export default function Header({ getLocation}: Props){
+export default function Header(){
 
     return (<nav className={classes.container}>
-        Easy Compost NYC
-        <button onClick={getLocation}> Get your location</button>
+        <span>Easy Compost NYC</span>
+        <div style={{flexGrow: 1}} />
     </nav>)
 
 }
