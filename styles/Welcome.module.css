@@ -8,13 +8,16 @@
 }
 
 .container {
-    padding: 2em;
-    height: 100vh;
+    padding: 3em;
     display: inline-block;
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
+}
+
+.container h1, .container h1{
+    margin: 0;
 }
 
 .container h1{
@@ -24,6 +27,11 @@
     font-size: 3em;
     width: 100%;
     text-align: center;
+}
+
+.container h2{
+    text-align: center;
+    font-weight: normal;
 }
 
 .actions{

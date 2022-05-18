@@ -15,7 +15,7 @@ export default function Sites({ location, sites }: Props) {
     return (
         <div className={classes.sitesContainer}>
             <table>
-                <thead>
+                <thead className={classes.tableHead}>
                     <tr>
                         <td>Intersection</td>
                         <td>Day</td>

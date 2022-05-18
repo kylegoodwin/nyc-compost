@@ -1,3 +1,6 @@
+## Work In Progress
+Link: [NYC Compost](https://nyc-compost.netlify.app/)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 - [x] Display table of data on homepage
@@ -15,6 +18,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [ ] Options for site sorting
 - [ ] Add filters
 - [ ] Setup testing for data manipulation and UI elements
+- [x] Setup stie on Netlify
 - [ ] Github actions for CI/CD
 - [ ] Add deploy to subdomain on personal site
 - [ ] Add attribution for homepage photo

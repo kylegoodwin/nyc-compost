@@ -24,8 +24,6 @@ const DynamicMap = dynamic(
   }
 )
 
-// https://www.google.com/maps/d/u/0/kml?mid=1c2Dv882CW6Fosx5jj9u7fLQRJkg&forcekml=1
-
 const MAP_DATA_URL = 'https://www.google.com/maps/d/u/0/kml?mid=1c2Dv882CW6Fosx5jj9u7fLQRJkg&forcekml=1'
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -109,7 +107,7 @@ const Home: NextPage<Props> = ({ compostSites, boroShapes }: Props) => {
 
   return (
     <>
-    {/* <Header /> */}
+    <Header />
     <Welcome />
     <section>
       <h2>Sites and Map</h2>
