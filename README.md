@@ -22,3 +22,4 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [ ] Github actions for CI/CD
 - [ ] Add deploy to subdomain on personal site
 - [ ] Add attribution for homepage photo
+- [ ] Add privacy protecting analytics to track use [Goat Counter](https://www.goatcounter.com/)
