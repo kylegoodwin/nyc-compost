@@ -32,7 +32,7 @@ export default function Sites({ location, sites }: Props) {
                         }
                         return <>
                             {showBoro && <tr><td className={classes.seperator}>{currentBoro}</td></tr> }
-                            <SingleSite location={location} key={_site.coordinates!} site={_site} />
+                            <SingleSite location={location} key={_site.coordinates} site={_site} />
                         </>
                     })}
                 </tbody>

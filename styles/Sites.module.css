@@ -17,4 +17,5 @@
 
 .tableHead tr td{
     padding: 1em;
+    padding-left: 0;
 }

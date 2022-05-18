@@ -107,17 +107,17 @@ const Home: NextPage<Props> = ({ compostSites, boroShapes }: Props) => {
 
   return (
     <>
-    <Header />
-    <Welcome />
-    <section>
-      <h2>Sites and Map</h2>
-    <div className={styles.container}>
-      <div className={styles.mainGrid}>
-        <Sites location={state.location} sites={compostSites} />
-        <DynamicMap sites={compostSites} />
-      </div>
-    </div>
-    </section>
+      <Header />
+      <Welcome handleGetLocation={getLocation} />
+      <section>
+        <div className={styles.container}>
+        <h2>Sites and Map</h2>
+          <div className={styles.mainGrid}>
+            <Sites location={state.location} sites={compostSites} />
+            <DynamicMap sites={compostSites} />
+          </div>
+        </div>
+      </section>
     </>
   )
 }

@@ -1,6 +1,7 @@
 
 .container{
     height: 100vh;
+    padding-left: 1em;
 }
 .mainGrid{
     height: 100%;
