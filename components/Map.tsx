@@ -21,6 +21,8 @@ export default function Map(props: SiteDisplayProps) {
     const { sites, selectedSite } = props
     const position: LatLngTuple = [40.7423, -73.9095]
 
+    const [prevSelction, setPrevSelection] = useState<number>(-1);
+
     const { height } = useWindowSize();
 
     const [t, setT] = useState(0);
@@ -28,13 +30,10 @@ export default function Map(props: SiteDisplayProps) {
     const circleRefs = useRef<EMap>({});
 
     useEffect(() => {
-        // console.log(circleRefs)
-        // return
-        console.log(circleRefs.current)
         if (!!selectedSite && circleRefs.current) {
-            console.log("set color")
-            console.log()
-            circleRefs.current[`${selectedSite}`]?.setStyle({color: "red"})
+            circleRefs.current[`${prevSelction}`]?.setStyle({ color: "green" })
+            circleRefs.current[`${selectedSite}`]?.setStyle({ color: "red" })
+            setPrevSelection(selectedSite)
         }
     }, [selectedSite])
 
@@ -48,6 +47,7 @@ export default function Map(props: SiteDisplayProps) {
                 />
                 {sites.map(_site => <Circle
                     radius={200}
+                    fillOpacity={100}
                     ref={(ref) => {
                         circleRefs.current[`${_site.index}`] = ref
                     }}
