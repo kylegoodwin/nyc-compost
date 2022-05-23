@@ -1,4 +1,5 @@
 export default interface Site{
+    index: number,
     name: string,
     intersection: string,
     coordinates: string,

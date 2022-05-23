@@ -21,6 +21,7 @@ const DynamicMap = dynamic(
   {
     ssr: false,
     loading: () => <p>A map is loading</p>,
+    
   }
 )
 
@@ -49,7 +50,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const text = await fetch(MAP_DATA_URL).then(res => res.text())
   const obj = parser.parse(text);
-  const sites: Site[] = obj.kml.Document.Folder.Placemark.map((each: any) => {
+  const sites: Site[] = obj.kml.Document.Folder.Placemark.map((each: any, index: number) => {
 
     const data: any[] = each.ExtendedData.Data
 
@@ -62,6 +63,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 
     const returnData: Site = {
+      index: index,
       lat: parseFloat(stringAr[0]),
       lng: parseFloat(stringAr[1]),
       name: each.name,
@@ -90,19 +92,25 @@ interface Props {
 interface State {
   location: GeolocationCoordinates | null
   error: GeolocationPositionError | null
+  selectedSite: number | null
 }
 
 const Home: NextPage<Props> = ({ compostSites, boroShapes }: Props) => {
 
   const [state, setState] = useState<State>({
     location: null,
-    error: null
+    error: null,
+    selectedSite: null
   });
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition((loc) => {
       setState({ ...state, location: loc.coords })
     });
+  }
+
+  const setSelectedSite = (site: number) => {
+    setState({...state,selectedSite: site})
   }
 
   return (
@@ -112,9 +120,10 @@ const Home: NextPage<Props> = ({ compostSites, boroShapes }: Props) => {
       <section>
         <div className={styles.container}>
         <h2>Sites and Map</h2>
+        <p>Selcted Site: {state.selectedSite}</p>
           <div className={styles.mainGrid}>
-            <Sites location={state.location} sites={compostSites} />
-            <DynamicMap sites={compostSites} />
+            <Sites setSelectedSite={setSelectedSite} location={state.location} sites={compostSites} />
+            <DynamicMap sites={compostSites} selectedSite={state.selectedSite} />
           </div>
         </div>
       </section>

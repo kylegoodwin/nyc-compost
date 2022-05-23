@@ -4,10 +4,11 @@ import classes from '../styles/Sites.module.css'
 
 interface Props {
     sites: Site[],
-    location?: GeolocationCoordinates | null
+    location?: GeolocationCoordinates | null,
+    setSelectedSite: (siteIndex : number) => void
 }
 
-export default function Sites({ location, sites }: Props) {
+export default function Sites({ location, sites, setSelectedSite }: Props) {
 
     const sortedSites = sites.sort((a, b) => { return a.boro! > b.boro! ? 1 : -1 });
     let currentBoro: string | undefined;
@@ -32,7 +33,7 @@ export default function Sites({ location, sites }: Props) {
                         }
                         return <>
                             {showBoro && <tr><td className={classes.seperator}>{currentBoro}</td></tr> }
-                            <SingleSite location={location} key={_site.coordinates} site={_site} />
+                            <SingleSite setSelectedSite={setSelectedSite} location={location} key={_site.coordinates} site={_site} />
                         </>
                     })}
                 </tbody>
