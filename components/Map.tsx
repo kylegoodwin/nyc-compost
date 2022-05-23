@@ -12,7 +12,7 @@ interface SiteDisplayProps {
     selectedSite: number | null
 }
 
-type EMap = {
+type IndexToRef = {
     [key: string]: CircleMarker | null
 }
 
@@ -24,15 +24,16 @@ export default function Map(props: SiteDisplayProps) {
     const [prevSelction, setPrevSelection] = useState<number>(-1);
 
     const { height } = useWindowSize();
+    const circleRefs = useRef<IndexToRef>({});
 
-    const [t, setT] = useState(0);
-
-    const circleRefs = useRef<EMap>({});
+    const setCircleColor = (index: number, color: string) => {
+        circleRefs.current[`${index}`]?.setStyle({ color: color })
+    }
 
     useEffect(() => {
         if (!!selectedSite && circleRefs.current) {
-            circleRefs.current[`${prevSelction}`]?.setStyle({ color: "green" })
-            circleRefs.current[`${selectedSite}`]?.setStyle({ color: "red" })
+            setCircleColor(prevSelction,"green");
+            setCircleColor(selectedSite,"red")
             setPrevSelection(selectedSite)
         }
     }, [selectedSite])
@@ -61,17 +62,4 @@ export default function Map(props: SiteDisplayProps) {
             </MapContainer>}
         </div>
     )
-}
-
-const Circles = ({ sites, selectedSite }: SiteDisplayProps) => {
-
-    const [t, setT] = useState(0);
-
-    useEffect(() => {
-        setT(t + 1);
-    }, [selectedSite])
-
-    return <>
-        {sites.map(_site => <Circle key={_site.coordinates.replace(" ", "")} color={t > 0 && _site.index === selectedSite ? 'red' : 'green'} center={[_site.lat, _site.lng]} />)}
-    </>
 }
